@@ -12,7 +12,10 @@
 
 <p>
   <strong>Brewery:</strong>
-  <%= @beer.brewery_id %>
+  <%= 
+    brewery = Brewery.find @beer.brewery_id 
+    brewery.name
+  %>
 </p>
 
 <p>
