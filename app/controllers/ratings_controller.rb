@@ -13,7 +13,9 @@ class RatingsController < ApplicationController
     if Beer.exists?(beerid)
       @rating = Rating.new params.require(:rating).permit(:score, :beer_id)
       @rating.user = current_user
-      if @rating.save
+      if current_user.nil?
+        redirect_to signin_path, notice: 'you should be signed in to rate a beer'
+      elsif @rating.save
         session[:last_rating] = "#{@rating.beer.name} #{@rating.score} points"
         redirect_to current_user
       else
