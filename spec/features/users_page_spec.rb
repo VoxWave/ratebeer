@@ -14,10 +14,6 @@ describe "User" do
       expect(page).to have_content 'Welcome back!'
       expect(page).to have_content 'Pekka'
     end
-  end
-
-  describe "who has signed up" do
-    # ...
 
     it "is redirected back to signin form if wrong credentials given" do
       sign_in(username: "Pekka", password: "wrong")
