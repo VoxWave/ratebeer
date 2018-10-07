@@ -11,3 +11,4 @@ deploy:
   app: dry-brushlands-93333
   on:
     repo: VoxWave/ratebeer
+  run: "rails db:migrate"
