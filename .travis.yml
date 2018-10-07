@@ -1,8 +1,9 @@
 language: ruby
-
 rvm:
 - 2.5.1
-
 script:
-- bundle exec rails db:migrate 
+- bundle exec rails db:migrate
 - bundle exec rspec -fd spec
+deploy:
+  api_key:
+    secure: Sg7T8QPSEEPUFKc3CCeidP/nLDzPhlTbyQU2Kss9eWhhs0K1Zm5y25E2Ihxo1nrpa9wHn5j0yd7274a+v2RFPjD0zdC6HNs6Ni5cd+19/QK4oZCNmtAaDpMjzozaJnxx56YkPDrftru9znbsy1RSwV46GZbihP81F7m+Z0RCSBHNjCIX5NEh87Cwl0EbAnb1b6ztXzvWssSDLVjoHbmFTekNXlhXUJ7T+iWCVVkas001jeoa2+tFcEY0rDqVoO4N5YWyqcaBR9HV4G8Kj9gvFvV4yGHBOQsrxqqdoWazdLs3jdRoGqFcU0G9iaOEA7jhNjKN1a43au9SPnDS0QmkVDbejLmB9VTEy97BJTEuenMjp0a5lT0YJyHT7OXI3Nd75KHDGkg1tI5b4vnv/tBTrb59jBhERD8sNHI2ioLiv+9o+kmExJ+yEC4/BFPyKDkJS85fJ//4HyVV/0cMseWOzJWRjlxcS1lQf6C8l1oTF6pIww9jJBnfzpATHHu92tY2qXVVLTdFPtLEs43fbP5bUC4h/yUNsNW3Rj9iZzyp5sC6uqsQNUsPEYmgNISqqXCxbPhADuHJQBFkyNepjCHU43dGYbTjvYTDxM5XV9AS78IESUYoH73A/MsiQ/YT9MM2scG72HMck7zPkoig8tLLyjM1uuaE7O3qyaDhvCFwysw=
