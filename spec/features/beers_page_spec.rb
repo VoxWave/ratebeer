@@ -4,6 +4,8 @@ describe "Beers page" do
   describe "creating a new beer" do
     before :each do
       @brewery = FactoryBot.create(:brewery)
+      user = FactoryBot.create(:user)
+      sign_in({username: 'Pekka', password: 'Foobar1'})
       visit new_beer_path
     end
     it "beer can be added if the name is valid" do

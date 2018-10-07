@@ -20,8 +20,10 @@
         <% @brewery = Brewery.find(beer.brewery_id) %>
         <td><%= link_to @brewery.name, @brewery %></td>
         <td><%= link_to 'Show', beer %></td>
-        <td><%= link_to 'Edit', edit_beer_path(beer) %></td>
-        <td><%= link_to 'Destroy', beer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user %>
+          <td><%= link_to 'Edit', edit_beer_path(beer) %></td>
+          <td><%= link_to 'Destroy', beer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -29,5 +31,5 @@
 
 <br>
 
-<%= link_to 'New Beer', new_beer_path %><br>
+<%= link_to 'New Beer', new_beer_path if current_user %><br>
 <%= link_to 'List of breweries', breweries_path%>
