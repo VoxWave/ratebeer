@@ -6,7 +6,7 @@
 <% end %>
 
 <% if @places %>
-  <table>
+  <table class="table table-hover">
     <thead>
       <% Place.rendered_fields.each do |field| %>
         <th><%= field %></th>
@@ -25,5 +25,5 @@
     <% end %>
   </table>
 <% else %>
-  <p id="notice"><%= notice %></p>
+  
 <% end %>

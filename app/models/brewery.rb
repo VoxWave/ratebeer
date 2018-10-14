@@ -1,5 +1,6 @@
 class Brewery < ApplicationRecord
   include RatingAverage
+  include TopRated
 
   validates :name, presence: true
   validates :year, numericality: { greater_than_or_equal_to: 1040,
@@ -8,6 +9,9 @@ class Brewery < ApplicationRecord
 
   has_many :beers, dependent: :destroy
   has_many :ratings, through: :beers
+
+  scope :active, -> { where active: true }
+  scope :retired, -> { where active: [nil, false] }
 
   def not_in_future
     if year > Time.now.year
@@ -18,5 +22,13 @@ class Brewery < ApplicationRecord
   def restart
     self.year = 2018
     puts "changed year to #{year}"
+  end
+
+  def self.top(n)
+    Brewery.all.sort_by{ |b| -(b.average_rating || 0) }.take(n)
+  end
+
+  def to_s
+    "#{name}, established in #{year}"
   end
 end

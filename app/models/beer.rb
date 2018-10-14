@@ -1,5 +1,6 @@
 class Beer < ApplicationRecord
   include RatingAverage
+  include TopRated
 
   validates :name, presence: true
   validates :style, presence: true
@@ -12,5 +13,9 @@ class Beer < ApplicationRecord
   def to_s
     brewery = Brewery.find brewery_id
     "#{name}, #{brewery.name}"
+  end
+
+  def self.top(n)
+    Beer.all.sort_by{ |b| -(b.average_rating || 0) }.take(n)
   end
 end
