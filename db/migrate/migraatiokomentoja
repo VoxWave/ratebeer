@@ -1,0 +1,3 @@
+rails generate migration AddStyleRefToBeers style_id:references
+
+rails generate migration RenameStyleToOldStyle

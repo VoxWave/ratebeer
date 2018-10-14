@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :ratings, only: [:index, :new, :create, :destroy]
   resources :beers
   resources :breweries
+  resources :styles, only:[:index, :show]
   resource :session, only: [:new, :create, :destroy]
   get 'signup', to: 'users#new'
   get 'signin', to: 'sessions#new'
