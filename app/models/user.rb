@@ -27,4 +27,12 @@ class User < ApplicationRecord
     ratings_of_style = ratings.select{ |r| r.beer.style == style }
     ratings_of_style.map(&:score).sum / ratings_of_style.length.to_f
   end
+
+  def self.top(n)
+    User.all.sort_by{ |user| user.ratings.length }.take(n)
+  end
+
+  def to_s
+    username
+  end
 end

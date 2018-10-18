@@ -1,7 +1,13 @@
 module TopRated
   extend ActiveSupport::Concern
 
-  def self.top(n)
-    all.sort_by{ |b| -(b.average_rating || 0) }.take(n)
+  def self.included(obj)
+    obj.extend(ClassMethods)
+  end
+
+  module ClassMethods
+    def top(amount)
+      all.sort_by{ |b| -(b.average_rating || 0) }.take(amount)
+    end
   end
 end
