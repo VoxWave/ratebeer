@@ -42,10 +42,10 @@
                 <%= current_user.username %>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to "my page", current_user, { class: "dropdown-item", href: "#" } %>
-                <%= link_to 'rate a beer ', new_rating_path, { class: "dropdown-item", href: "#" } %>
+                <%= link_to "my page", current_user, { class: "dropdown-item" } %>
+                <%= link_to 'rate a beer ', new_rating_path, { class: "dropdown-item"} %>
                 <div class="dropdown-divider"></div>
-                <%= link_to 'signout', signout_path, { class: "dropdown-item", href: "#", method: :delete } %>
+                <%= link_to 'signout', signout_path, { class: "dropdown-item", method: :delete } %>
               </div>
             </li>                    
           <% else %>

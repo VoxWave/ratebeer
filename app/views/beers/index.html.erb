@@ -20,10 +20,7 @@
         <% @brewery = Brewery.find(beer.brewery_id) %>
         <td><%= link_to @brewery.name, @brewery %></td>
         <td><%= link_to 'Show', beer, class:'btn btn-primary' %></td>
-        <% if current_user %>
-          <td><%= link_to 'Edit', edit_beer_path(beer), class:'btn btn-primary' %></td>
-          <td><%= link_to 'Destroy', beer, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %></td>
-        <% end %>
+        <td><%= edit_and_destroy_buttons(beer) %></td>
       </tr>
     <% end %>
   </tbody>
