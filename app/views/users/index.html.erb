@@ -13,10 +13,11 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.username %></td>
-        <% if current_user.admin %>
-          <td></td>
+        <td><%= user.username %>
+        <% if current_user.admin && user.closed %>
+          <span class="badge badge-secondary">account closed</span>
         <% end %>
+        </td>
         <td><%= link_to 'Show', user %></td>
       </tr>
     <% end %>

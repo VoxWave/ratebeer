@@ -3,7 +3,8 @@
 <h1>
   <%= @user.username %>
 </h1>
-<%= link_to('Close account', toggle_closed_user_path(@user.id), method: :post, class: "btn btn-danger") if current_user && current_user.admin %>
+<% toggle_string = @user.closed ? "Open account" : "Close account" %>
+<%= link_to(toggle_string, toggle_closed_user_path(@user.id), method: :post, class: "btn btn-danger") if current_user && current_user.admin %>
 <p>
   Has made <%= @user.ratings.length %>, average rating is <%= round(@user.average_rating) %>
 </p>
