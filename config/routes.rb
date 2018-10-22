@@ -8,9 +8,11 @@ Rails.application.routes.draw do
   get 'kaikki_bisset', to: 'beers#index'
   resources :ratings, only: [:index, :new, :create, :destroy]
   resources :beers
+  get 'beerlist', to:'beers#list'
   resources :breweries do
     post 'toggle_activity', on: :member
   end
+  get 'brewerylist', to:'breweries#list'
   resources :styles, only:[:index, :show]
   resource :session, only: [:new, :create, :destroy]
   get 'signup', to: 'users#new'
