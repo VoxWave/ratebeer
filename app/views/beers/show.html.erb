@@ -1,4 +1,4 @@
-
+<%cache @beer do %>
 
 <p>
   <strong>Name:</strong>
@@ -25,6 +25,8 @@
   Has <%= pluralize(@beer.ratings.length, 'rating') %>, average: <%= round(@beer.average_rating) %>
   <% end %>
 </p>
+
+<% end %>
 
 <%= link_to 'Edit', edit_beer_path(@beer) %> |
 <%= link_to 'Back', beers_path %>
